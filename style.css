@@ -1,0 +1,343 @@
+* {
+    font-family: "Nunito", sans-serif;
+    text-decoration: none;
+}
+
+/*----- colors -----*/
+:root {
+    --back-ground-primary: #06327B;
+    --back-ground-second: #305B92;
+    --back-ground-third: #133E8A;
+    --typography: #FFFFFF;
+}
+
+/*----- font sizes -----*/
+:root {
+    --text-body: 16px;
+    --text-subtitle: 14px;
+    --text-header-h3: 48px;
+    --text-header-h6: 20px;
+    --text-header-h4: 34px;
+}
+
+/*----- fotn weight -----*/
+:root {
+    --medium: 500;
+    --blod: 700;
+}
+
+
+/*========== header ==========*/
+.header {
+    background-color: var(--back-ground-primary);
+}
+
+.header .logo h3 {
+    color: var(--typography);
+    font-weight: var(--blod);
+}
+
+.header .search input {
+    background-color: var(--back-ground-third);
+    color: var(--typography);
+    border-radius: 0px 30px 30px 0px;
+    border: none;
+    font-size: var(--text-body);
+    font-weight: var(--medium);
+}
+
+.header .search input::placeholder {
+    color: var(--typography);
+    font-size: var(--text-body);
+    font-weight: var(--medium);
+}
+
+.header .search .btnSearch {
+    border: none;
+    border-radius: 50% 0% 0 50%;
+    background-color: var(--back-ground-third);
+    color: var(--typography);
+}
+
+.header .formats .form {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--back-ground-third);
+    color: var(--typography);
+    font-size: var(--text-header-h6);
+    font-weight: var(--medium);
+}
+
+/*--- notify ---*/
+.header .notify {
+    color: var(--typography);
+    font-size: var(--text-header-h6);
+}
+
+.header .notify .notification_clear{
+    font-size: var(--text-subtitle);
+    color: var(--typography);
+    cursor: pointer;
+}
+
+.header .notify .dropdown-menu{
+    background-color: var(--back-ground-third);
+}
+
+.header .notify .dropdown-menu .notification a {
+    color: var(--typography);
+    font-size: var(--text-body);
+    cursor: pointer;
+}
+
+.header .notify .dropdown-menu .notification a:hover{
+    background-color: var(--back-ground-second);
+}
+
+.header .notify .dropdown-menu .noNotification{
+    color: var(--typography);
+    font-size: var(--text-body);
+}
+
+
+/*========== weather =========*/
+.weather {
+    background-color: var(--back-ground-primary);
+}
+
+/*--- current ---*/
+
+.weather .current .location h6 {
+    font-size: var(--text-body);
+    font-weight: var(--medium);
+    color: var(--typography);
+}
+
+.weather .current .card {
+    background-color: var(--back-ground-second);
+    color: var(--typography);
+}
+
+.weather .current .card .card-title {
+    font-size: var(--text-subtitle);
+    font-weight: var(--medium);
+}
+
+.weather .current .card .card-subtitle {
+    font-size: var(--text-header-h6);
+    font-weight: var(--medium);
+}
+
+.weather .current .card .card-subtitle .time {
+    font-size: var(--text-subtitle);
+    font-weight: var(--medium);
+}
+
+.weather .current .card .weatherImg {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.weather .current .card .temp {
+    font-size: var(--text-header-h3);
+    font-weight: var(--blod);
+}
+
+.weather .current .card .tempFormat {
+    font-size: var(--text-header-h6);
+    font-weight: var(--medium);
+}
+
+.weather .label {
+    font-size: var(--text-subtitle);
+    font-weight: var(--medium);
+}
+
+.weather .value {
+    font-size: var(--text-body);
+    font-weight: var(--medium);
+}
+
+/*--- forecast ---*/
+.weather .forecast .label {
+    border: none;
+    font-size: var(--text-body);
+    font-weight: var(--medium);
+    color: var(--typography);
+    background-color: var(--back-ground-third);
+    border-radius: 30px;
+    cursor: default;
+}
+
+.weather .forecast .card {
+    background-color: var(--back-ground-third);
+    color: var(--typography);
+}
+
+.weather .forecast .card .card-title {
+    font-size: var(--text-header-h6);
+    font-weight: var(--medium);
+}
+
+.weather .forecast .card .forecastImg {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.weather .forecast .card .temp {
+    font-size: var(--text-header-h4);
+    font-weight: var(--blod);
+}
+
+.weather .forecast .forecastCarousel .owl-nav {
+    text-align: center;
+}
+
+.weather .forecast .forecastCarousel .owl-nav .owl-prev i {
+    color: var(--typography);
+    font-size: var(--text-header-h6);
+    margin-top: 5px;
+    margin-right: 2.5px;
+}
+
+.weather .forecast .forecastCarousel .owl-nav .owl-next i {
+    color: var(--typography);
+    font-size: var(--text-header-h6);
+    margin-top: 5px;
+    margin-left: 2.5px;
+}
+
+
+/*========== map and history ==========*/
+.map {
+    background-color: var(--back-ground-primary);
+}
+
+.map .history .past {
+    max-height: 500px;
+}
+
+.map .label {
+    border: none;
+    font-size: var(--text-body);
+    font-weight: var(--medium);
+    color: var(--typography);
+    background-color: var(--back-ground-third);
+    border-radius: 30px;
+    cursor: default;
+}
+
+.map .weather_map .interactive_weather_map {
+    border: 3px solid var(--back-ground-second);
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.map .history .past .card {
+    background-color: var(--back-ground-third);
+    color: var(--typography);
+}
+
+.map .history .past .card .card-title {
+    font-size: var(--text-header-h6);
+    font-weight: var(--medium);
+}
+
+.map .history .past .card .condition {
+    font-size: var(--text-body);
+    font-weight: var(--medium);
+}
+
+.map .history .past .card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.map .history .past .card h4 .temp {
+    font-size: var(--text-header-h4);
+    font-weight: var(--blod);
+}
+
+.map .history .past .card h4 .format {
+    font-size: var(--text-header-h6);
+    font-weight: var(--medium);
+}
+
+
+/*========== toast message ==========*/
+.toastMessage .toastHeader span{
+    color: var(--back-ground-primary);
+    font-size: var(--text-subtitle);
+    font-weight: var(--blod);
+}
+
+.toastMessage .toastBody span{
+    color: var(--back-ground-third);
+    font-size: var(--text-body);
+    font-weight: var(--medium);
+}
+
+
+/*========== footer ==========*/
+.footer {
+    background-color: var(--back-ground-third);
+}
+
+.footer footer {
+    border-top: 1px solid var(--back-ground-second);
+}
+
+.footer footer .nav li a .fa {
+    color: var(--typography);
+    font-size: var(--text-header-h6);
+}
+
+.footer footer .copy a,span{
+    color: var(--typography);
+    font-size: var(--text-body);
+    font-weight: var(--medium);
+}
+
+
+/*========== scrollbar style ==========*/
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--back-ground-primary);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--back-ground-second);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--back-ground-third);
+}
+
+
+/*========== media ==========*/
+@media screen and (min-width: 768px) {
+    .small {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .large{
+        display: none;
+    }
+}

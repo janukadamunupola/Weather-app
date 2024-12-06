@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+    <!-- font-awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/plugin/owlCarousel/owl.carousel.min.css">
+
+
+
+</head>
+
+<body>
+    <!-- header -->
+    <div class="container-fluid header">
+        <div class="row">
+            <div class="col-7 col-sm-8 col-md-8 col-lg-3 col-xxl-2 logo">
+                <h3 class="my-3 ms-3">Weather App</h3>
+            </div>
+
+            <div class="col-2 col-sm-2 col-md-2 col-lg-1 notify text-end dropdown">
+                <i class="fa fa-bell mt-4 dropdown-toggle position-relative" aria-hidden="true" style="cursor: pointer;"
+                    data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><span
+                        class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-primary p-2"></span></i>
+                <ul class="dropdown-menu notificationAdd">
+                    <li><a class="notification_clear ms-2" id="btnNotifyClear" type="button">Clear All</a></li>
+                </ul>
+            </div>
+
+            <div class="col-3 col-sm-2 col-md-2 col-lg-1 formats text-end">
+                <div class="my-3 me-3">
+                    <select class="form focus-ring py-2 px-2" id="getFormatValue"
+                        style="--bs-focus-ring-color: var(--label_extra);" onchange="formatController()">
+                        <option selected value="C">&deg;C</option>
+                        <option value="F">&deg;F</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xxl-8 search d-flex my-3 px-4">
+                <button class="btnSearch" type="submit" id="searchButton"></button>
+                <input class="form-control me-2 focus-ring" type="search" id="searchCity" placeholder="Search City..."
+                    aria-label="Search" style="--bs-focus-ring-color: var(--label_extra);">
+            </div>
+        </div>
+    </div>
+
+    <!-- weather -->
+    <div class="container-fluid weather">
+        <div class="row">
+            <!-- current weather-->
+            <div class="col-12 col-sm-12 col-md-7 col-lg-5 current">
+                <div class="location my-3">
+                    <h6 class="py-1 mb-0 ms-3"><i class="fa fa-map-marker" aria-hidden="true"></i> <span
+                            id="setLocation"></span></h6>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h6 class="card-title">Current Weather</h6>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <h6 class="card-subtitle" id="setDay"></h6>
+                            </div>
+                            <div class="col-6 text-end">
+                                <h6 class="time" id="setTime"></h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="" class="weatherImg" alt="weather-img" id="setWeatherImg">
+                            </div>
+                            <div class="col-6">
+                                <h6 class="mt-2 mb-0"><span id="setTemp" class="temp"></span><span id="setFormat"
+                                        class="tempFormat"></span></h6>
+                                <span id="setCondition" class="value"></span><br>
+                                <span class="label">Feels like : </span><span class="value" id="setFeelsLike"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <h6><span class="label">Wind : </span><span class="value" id="setWind"></span></h6>
+                            </div>
+                            <div class="col-6">
+                                <h6><span class="label">Wind Degree : </span><span class="value"
+                                        id="setWindDegree"></span></h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <h6><span class="label">Wind Diraction : </span><span class="value"
+                                        id="setWindDir"></span></h6>
+                            </div>
+                            <div class="col-6">
+                                <h6><span class="label">Pressure : </span><span class="value" id="setPressure"></span>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <h6><span class="label">Precip : </span><span class="value" id="setPrecip"></span></h6>
+                            </div>
+                            <div class="col-6">
+                                <h6><span class="label">Humidity : </span><span class="value" id="setHumidity"></span>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <h6><span class="label">Cloud : </span><span class="value" id="setCloud"></span></h6>
+                            </div>
+                            <div class="col-6">
+                                <h6><span class="label">Visibility : </span><span class="value" id="setVis"></span></h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <h6><span class="label">UV Radiation : </span><span class="value" id="setUV"></span>
+                                </h6>
+                            </div>
+                            <div class="col-6">
+                                <h6><span class="label">Gust Wind : </span><span class="value" id="setGustWind"></span>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <h6><span class="label">Air Quality (PM2.5) : </span><span class="value"
+                                        id="setAirQuality"></span></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- forecast -->
+            <div class="col-md-5 col-lg-7 forecast">
+                <div class="my-3">
+                    <button class="label px-3">Next 09 Days Forecast</button>
+                </div>
+
+                <div class="owl-carousel forecastCarousel">
+                    <div class="futureOwlCarousel-1"></div>
+                    <div class="futureOwlCarousel-2"></div>
+                    <div class="futureOwlCarousel-3"></div>
+                    <div class="futureOwlCarousel-4"></div>
+                    <div class="futureOwlCarousel-5"></div>
+                    <div class="futureOwlCarousel-6"></div>
+                    <div class="futureOwlCarousel-7"></div>
+                    <div class="futureOwlCarousel-8"></div>
+                    <div class="futureOwlCarousel-9"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- map and history -->
+    <div class="container-fluid map pb-3">
+        <div class="row">
+            <!-- map -->
+            <div class="col-12 col-sm-12 col-lg-8 col-xxl-9 weather_map">
+                <div class="my-3">
+                    <button class="label px-3">Weather Map</button>
+                </div>
+
+                <div>
+                    <iframe class="interactive_weather_map" src="https://mapa.tutiempo.net/en/#13.68869;78.5083;5"
+                        scrolling="no" webkitallowfullscreen="true" mozallowfullscreen="true"
+                        allowfullscreen="true"></iframe>
+                </div>
+            </div>
+
+            <!-- history -->
+            <div class="col-12 col-sm-12 col-lg-4 col-xxl-3 history">
+                <div class="my-3">
+                    <button class="label px-3">Past 07 Days</button>
+                </div>
+
+                <div class="overflow-y-auto past">
+                    <div class="pastSliderWrapper-1"></div>
+                    <div class="pastSliderWrapper-2"></div>
+                    <div class="pastSliderWrapper-3"></div>
+                    <div class="pastSliderWrapper-4"></div>
+                    <div class="pastSliderWrapper-5"></div>
+                    <div class="pastSliderWrapper-6"></div>
+                    <div class="pastSliderWrapper-7"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- toastMessage -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3 toastMessage">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <div class="toastIcon"></div>
+                <strong class="me-auto toastHeader"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body toastBody"></div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <!-- large -->
+    <div class="container-fluid footer py-4 large">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3">
+            <div class="col-md-8 d-flex align-items-center copy justify-content-start">
+                <a class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
+                    Weather App
+                </a>
+                <span class="mb-3 mb-md-0">&copy; 2024 iCET, Prageeth Thilakarathna</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li><a class="text-body-secondary" href="https://wa.me/94769799234" target="_blank"><i
+                            class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="mailto: ygprageethchamara2002@gmail.com"
+                        target="_blank">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://twitter.com/pcthilakarathna"
+                        target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary"
+                        href="https://web.facebook.com/prageeth.c.thilakarathna/" target="_blank"><i
+                            class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/prageeth_thilakarathna/"
+                        target="_blank">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a></li>
+                <li class="ms-3"><a class="text-body-secondary"
+                        href="https://www.linkedin.com/in/prageeth-thilakarathna/" target="_blank"><i
+                            class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/prageeth-thilakarathna"
+                        target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- small -->
+    <div class="container-fluid footer py-4 small">
+        <footer class="py-3">
+            <div class="col-12 copy text-center">
+                <a class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
+                    Weather App
+                </a><br>
+                <span class="mb-3 mb-md-0">&copy; 2024 iCET, Prageeth Thilakarathna</span>
+            </div>
+
+            <ul class="nav col-12 justify-content-center list-unstyled d-flex mt-3">
+                <li><a class="text-body-secondary" href="https://wa.me/94769799234" target="_blank"><i
+                            class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="mailto: ygprageethchamara2002@gmail.com"
+                        target="_blank">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://twitter.com/pcthilakarathna"
+                        target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary"
+                        href="https://web.facebook.com/prageeth.c.thilakarathna/" target="_blank"><i
+                            class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/prageeth_thilakarathna/"
+                        target="_blank">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a></li>
+                <li class="ms-3"><a class="text-body-secondary"
+                        href="https://www.linkedin.com/in/prageeth-thilakarathna/" target="_blank"><i
+                            class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/prageeth-thilakarathna"
+                        target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="assets/plugin/owlCarousel/owl.carousel.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
