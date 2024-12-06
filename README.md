@@ -1,3 +1,3 @@
 Weather App 
 
-Demo : https://janukadamunupola.github.io/icet-weather-app/
+Demo : https://prageeth-thilakarathna.github.io/icet-weather-app/
